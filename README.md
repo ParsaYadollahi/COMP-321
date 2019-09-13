@@ -1,2 +1,3 @@
 # COMP-321
-Programming Challenges
+
+Work from Programming Challenges course (Fall 2019)
