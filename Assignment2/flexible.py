@@ -1,3 +1,6 @@
+'''
+https://open.kattis.com/problems/flexible
+'''
 def main():
     first = map(int, input().split())
     second = map(int, input().split())
@@ -17,8 +20,11 @@ def main():
     
     ret_list.sort()
     ret_list.pop(0) # remove 0 since can't be valid area
-    s_ret_list = [str(i) for i in ret_list] # print list without commas/brackets
-    print(' '.join(s_ret_list))
+
+    for i in ret_list:
+        print(i),
+    
+
 
 if __name__ == "__main__":
     main()
