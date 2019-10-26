@@ -2,8 +2,8 @@
 https://open.kattis.com/problems/flexible
 '''
 def main():
-    first = map(int, input().split())
-    second = map(int, input().split())
+    first = list(map(int, input().split()))
+    second = list(map(int, input().split()))
 
     second.append(0)
     second.append(first[0])
