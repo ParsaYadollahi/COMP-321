@@ -1,29 +1,22 @@
-def main():
-    healthy = list(input())
-    disease = list(input())
-        
-        
-    stack = []
-    if healthy == disease:
-        print(0)
-    elif healthy and disease:
-        for i in range(min(len(disease), len(healthy))):
-            if healthy[i] != disease[i]: # find the uncommon area
-                break
+healthy = list(input())
+disease = list(input())
+    
+    
+stack = []
+i = 0
+while(i < min(len(healthy), len(disease)) and healthy[i] == disease[i]):
+    i+=1
 
-        stack = disease[i:] # append the diseased area and on
+stack = disease[i:]
+healthy = healthy[i:]
 
-        stack_index = len(stack)-1
-        healthy_index = len(healthy)-1
-        while((stack_index >= 0 and healthy_index >= 0) and \
-                    healthy[healthy_index] == stack[stack_index]): # move backwards
-            stack.pop()
-            healthy_index -= 1
-            stack_index -= 1
 
-        print(len(stack))
-    else:
-        print(len(disease))
+s_index = len(stack)-1
+h_index = len(healthy)-1
 
-if __name__ == "__main__":
-    main()
+while(stack and healthy and healthy[h_index] == stack[s_index]): # move backwards
+    stack.pop()
+    h_index -= 1
+    s_index -= 1
+
+print(len(stack))

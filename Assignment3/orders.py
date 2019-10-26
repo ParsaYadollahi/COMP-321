@@ -12,9 +12,9 @@ def backtrack(depth, result, combinations, target):
 
 def output_result(result):
     if len(result) == 0:
-        print('impossible')
+        print('Impossible')
     elif len(result) > 1:
-        print('ambiguous')
+        print('Ambiguous')
     else:
         for sub_arr in result:
             for i in sub_arr:
