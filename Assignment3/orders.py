@@ -1,14 +1,18 @@
+# Similar to n sum on leetcode where the result would return all the possible answers
+# Made the mistake of using recursion instead of dp
 import sys
-sys.setrecursionlimit(1000000)
+sys.setrecursionlimit(10000)
 def backtrack(depth, result, combinations, target):
-
     if sum(result) == target: # if the combinations is equal to the result append it to the list
         results.append(result)
         if len(result) > 2:
+            return True
+        else:
             return
     else:
         for i in range(depth, len(combinations)): # iterate through each of the elements in the list
-
+            if len(results) >= 2:
+                return True
             if target - sum(result) < combinations[i]: # backtrack (remove the last added element)
                 break # removes the last added number (no return statement)
             else:
@@ -26,6 +30,17 @@ if __name__ == "__main__":
 
     for target in targets: # loop through each of the individuals that have "money"
         results = []
+
+        check = 0
+        for i in combinations:
+            if target % i == 0:
+                check += 1
+            if check > 1:
+                print('ambiguous')
+                continue
+            else:
+                break
+        
         backtrack(0, [], combinations, target) # returns a 2d list with all combinations
         
         # display the answers for each individual
