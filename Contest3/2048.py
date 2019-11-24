@@ -97,4 +97,4 @@ def main():
         print(*graph[j])
 if __name__ == "__main__":
     main()
-    
+
